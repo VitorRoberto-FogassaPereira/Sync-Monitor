@@ -21,38 +21,24 @@ Cada conceito tem a **sua própria tela**, acessada por um **menu inicial**. Ass
 
 ## 🧭 Navegação
 
-```
-┌─────────────────────────────────┐
-│  Sync Monitor (menu inicial)    │  status do serviço no topo
-├─────────────────────────────────┤
-│ MÓDULO 2                        │
-│  📱 Desafio 1 — Acelerômetro    │ → SensorActivity
-│ MÓDULO 4 — Guia Prático 4       │
-│  ⚙️ Foreground Service (Passo 1)│ → ServicoActivity
-│  📜 Log de atividades (Passo 2) │ → LogActivity
-│  🔔 Notificações (Passo 3)      │ → NotificacaoActivity
-│  🧵 Main Thread vs Corrotinas(4)│ → ThreadsActivity
-│  🔋 Bateria e Doze Mode (5)     │ → BateriaActivity
-└─────────────────────────────────┘
-```
+| Sync Monitor (menu inicial) | status do serviço no topo |
+|---|---|
+|MÓDULO 2| |
+| 📱 Desafio 1 — Acelerômetro | SensorActivity |
+|MÓDULO 2| |
+| ⚙️ Foreground Service (Passo 1)| ServicoActivity |
+| 📜 Log de atividades (Passo 2) | LogActivity |
+| 🔔 Notificações (Passo 3)      | NotificacaoActivity |
+| 🧵 Main Thread vs Corrotinas(4)| ThreadsActivity |
+| 🔋 Bateria e Doze Mode (5)     | BateriaActivity |
+
+---
 
 Todas as telas seguem o mesmo padrão:
 1. **Barra superior** com título, módulo/passo e a seta **←** para voltar ao menu.
 2. Cartão **"📘 O que esta tela demonstra"**, que explica o conceito em linguagem simples.
 3. O conteúdo e as demonstrações daquele conceito.
 4. Um **registro (log)** no rodapé, mostrando o que aconteceu naquela tela.
-
----
-
-## 🚀 Como rodar
-
-1. Abra a pasta do projeto no **Android Studio**: `File → Open → MyApplication`.
-2. Aguarde o **Gradle Sync** terminar.
-3. Inicie um emulador (testado no *Medium Phone API 37*) ou conecte um celular.
-4. Clique em **Run ▶** (`Shift + F10`).
-5. Na tela **Foreground Service**, permita as notificações quando o app pedir (Android 13+).
-
-**Requisitos:** AGP 9.x, **minSdk 24** (Android 7.0), **targetSdk/compileSdk 37**, Kotlin e layouts XML (Views).
 
 ---
 
@@ -185,17 +171,6 @@ MyApplication/
 
 ---
 
-## 📦 Dependências
-
-| Biblioteca | Uso |
-|---|---|
-| `kotlinx-coroutines-android` 1.10.2 | Corrotinas e `StateFlow` |
-| `material` 1.10.0 | Toolbar, Cards, Chips, Slider, Switch e indicadores de progresso |
-| `recyclerview` 1.3.2 | Lista do log |
-| `appcompat`, `activity-ktx`, `core-ktx` | Activities, `lifecycleScope`, `NotificationCompat` e `TaskStackBuilder` |
-
----
-
 ## ⚠ Problemas comuns
 
 | Sintoma | Solução |
@@ -207,7 +182,3 @@ MyApplication/
 | O serviço some depois de ~6h (Android 15+) | É o limite do tipo `dataSync`, tratado em `onTimeout()`. |
 
 ---
-
-## 🎤 Apresentação
-
-Veja `ROTEIRO_APRESENTACAO.md` ou `Roteiro_Apresentacao_Sync_Monitor.docx`. O roteiro indica **qual tela cada integrante apresenta**, o que falar e o passo a passo das demonstrações.
