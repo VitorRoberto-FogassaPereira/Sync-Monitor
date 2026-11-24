@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SensorActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="📘 O que esta tela demonstra"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Padrão Observer na prática: a tela NÃO pergunta ao sensor se algo mudou (polling). Ela se inscreve com um SensorEventListener e o sistema a avisa em onSensorChanged(). A inscrição é feita no onResume() e cancelada no onPause(), evitando gasto de bateria e Memory Leak."
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/txtStatusListener"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="● LISTENER CANCELADO — CPU ociosa"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtInfoSensor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Carregando informações do sensor..."
+                        android:fontFamily="monospace"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Valores em tempo real (onSensorChanged)"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="32dp"
+                            android:layout_height="wrap_content"
+                            android:text="X"
+                            android:textColor="#E53935"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtX"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="monospace"
+                            android:text="+0.00"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="m/s²" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/barraX"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="50"
+                        app:indicatorColor="#E53935"
+                        app:trackCornerRadius="4dp"
+                        app:trackThickness="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="32dp"
+                            android:layout_height="wrap_content"
+                            android:text="Y"
+                            android:textColor="#43A047"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtY"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="monospace"
+                            android:text="+0.00"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="m/s²" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/barraY"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="50"
+                        app:indicatorColor="#43A047"
+                        app:trackCornerRadius="4dp"
+                        app:trackThickness="8dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="32dp"
+                            android:layout_height="wrap_content"
+                            android:text="Z"
+                            android:textColor="#1E88E5"
+                            android:textSize="22sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtZ"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="monospace"
+                            android:text="+0.00"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="m/s²" />
+                    </LinearLayout>
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/barraZ"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:max="100"
+                        android:progress="50"
+                        app:indicatorColor="#1E88E5"
+                        app:trackCornerRadius="4dp"
+                        app:trackThickness="8dp" />
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:columnCount="2"
+                        android:useDefaultMargins="true">
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="Magnitude" />
+                        <TextView android:id="@+id/txtMagnitude" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="Eventos recebidos" />
+                        <TextView android:id="@+id/txtEventos" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="0" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="Frequência real" />
+                        <TextView android:id="@+id/txtHz" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="0 Hz" android:textStyle="bold" />
+
+                    </GridLayout>
+
+                    <TextView
+                        android:id="@+id/txtOrientacao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Aguardando leituras..."
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Frequência de entrega (samplingPeriod)"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:scrollbars="none">
+
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/chipsDelay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:checkedChip="@id/chipUi"
+                            app:selectionRequired="true"
+                            app:singleLine="true"
+                            app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipNormal"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NORMAL (~5 Hz)" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipUi"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UI (~16 Hz)" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipGame"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="GAME (~50 Hz)" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFastest"
+                    style="@style/Widget.Material3.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FASTEST" />
+
+                        </com.google.android.material.chip.ChipGroup>
+                    </HorizontalScrollView>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchLeak"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="⚠ Simular erro: NÃO cancelar no onPause()" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnZerar"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Zerar contador de eventos" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Como comprovar no Android Profiler"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="1. No Android Studio: View → Tool Windows → Profiler.&#10;2. Selecione o processo com.example.myapplication e abra a linha CPU.&#10;3. Com esta tela aberta (use FASTEST), a CPU mostra atividade constante.&#10;4. Aperte Home: o onPause() chama unregisterListener() e a CPU do app cai para ~0%.&#10;5. Ligue o modo de erro acima e repita: a CPU continua ativa com o app minimizado."
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Log do ciclo de vida do listener"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtLogSensor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text=""
+                        android:fontFamily="monospace"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

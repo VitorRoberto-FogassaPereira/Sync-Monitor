@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ServicoActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="📘 O que esta tela demonstra"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Um Foreground Service executa uma tarefa longa (aqui, ciclos de sincronização) mesmo com o app minimizado. Ele é obrigado a exibir uma notificação fixa. O trabalho roda em uma Corrotina no Dispatchers.IO, nunca na Main Thread."
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtStatus"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="● PARADO"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:layout_weight="1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtTempoAtivo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="00:00:00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:fontFamily="monospace" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/txtCiclo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Ciclo #0 • Etapa 0/5"
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    <TextView
+                        android:id="@+id/txtTarefa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Aguardando início"
+                        android:textAppearance="?attr/textAppearanceBodyLarge"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.progressindicator.LinearProgressIndicator
+                        android:id="@+id/progresso"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:max="100"
+                        app:trackCornerRadius="4dp" />
+
+                    <TextView
+                        android:id="@+id/txtThread"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Thread: —"
+                        android:textAppearance="?attr/textAppearanceBodySmall"
+                        android:fontFamily="monospace" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Controles"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtIntervalo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Intervalo entre ciclos: 5s" />
+
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/sliderIntervalo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:stepSize="1"
+                        android:value="5"
+                        android:valueFrom="2"
+                        android:valueTo="10" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnIniciarServico"
+                        style="@style/Widget.Material3.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="▶ Iniciar Serviço" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPausar"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_weight="1"
+                        android:enabled="false"
+                        android:text="Pausar" />
+
+                        <Space android:layout_width="8dp" android:layout_height="1dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPararServico"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:layout_weight="1"
+                        android:enabled="false"
+                        android:text="Parar Serviço" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switchFalhaRede"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Simular falha de rede (testar backoff)" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Métricas em tempo real"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:columnCount="2"
+                        android:useDefaultMargins="true">
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="🔋 Bateria" />
+                        <TextView android:id="@+id/txtBateria" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="📶 Rede" />
+                        <TextView android:id="@+id/txtRede" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="📦 Pacotes enviados" />
+                        <TextView android:id="@+id/txtPacotes" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="0" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="📤 Dados enviados" />
+                        <TextView android:id="@+id/txtKb" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="0,00 KB" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="🗜 Última compressão" />
+                        <TextView android:id="@+id/txtCompressao" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="⚠ Falhas" />
+                        <TextView android:id="@+id/txtFalhas" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="0" android:textStyle="bold" />
+
+                    </GridLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Última atividade em segundo plano"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtUltimoLog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Nenhuma atividade ainda."
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnVerLogs"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="📜 Ver log completo →" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

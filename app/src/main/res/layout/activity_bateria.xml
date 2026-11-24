@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/raiz"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BateriaActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewFilledStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="📘 O que esta tela demonstra"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Para economizar bateria, o Android restringe apps em segundo plano: o Doze Mode adia trabalho quando o aparelho está parado com a tela desligada, e os App Standby Buckets limitam apps pouco usados. Por isso a escolha da ferramenta certa importa."
+                        android:textAppearance="?attr/textAppearanceBodyMedium"
+                        android:lineSpacingExtra="2dp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Situação atual do aparelho"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:columnCount="2"
+                        android:useDefaultMargins="true">
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="🔋 Nível da bateria" />
+                        <TextView android:id="@+id/txtNivelBateria" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="⚡ Carregando" />
+                        <TextView android:id="@+id/txtCarregando" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="🪫 Economia de energia" />
+                        <TextView android:id="@+id/txtEconomia" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="💤 Em Doze agora" />
+                        <TextView android:id="@+id/txtDoze" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="🛡 Otimização para o app" />
+                        <TextView android:id="@+id/txtOtimizacao" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="📊 App Standby Bucket" />
+                        <TextView android:id="@+id/txtBucket" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="—" android:textStyle="bold" />
+
+                    </GridLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnAtualizarBateria"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="🔄 Atualizar leitura" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnConfigBateria"
+                        style="@style/Widget.Material3.Button.OutlinedButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Abrir configurações de otimização de bateria" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Qual ferramenta usar?"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="⚙️ Foreground Service&#10;Tarefa contínua que o usuário percebe (música, GPS, sincronização ativa). Exige notificação fixa."
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="🗓 WorkManager&#10;Tarefa adiável, mas com execução garantida (backup, envio de logs). O sistema agrupa tarefas para economizar bateria."
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="🔗 Bound Service&#10;Canal cliente-servidor enquanto uma tela está aberta. Encerra quando todas as telas se desvinculam."
+                        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                style="?attr/materialCardViewElevatedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        android:text="Registro desta tela"
+                        android:textAppearance="?attr/textAppearanceTitleSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtLogBateria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text=""
+                        android:fontFamily="monospace"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

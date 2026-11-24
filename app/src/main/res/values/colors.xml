@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- Cores por tipo de log -->
+    <color name="log_ciclo_vida">#7E57C2</color>
+    <color name="log_tarefa">#1E88E5</color>
+    <color name="log_sucesso">#43A047</color>
+    <color name="log_aviso">#FB8C00</color>
+    <color name="log_erro">#E53935</color>
+    <color name="log_notificacao">#00897B</color>
+    <color name="log_sistema">#546E7A</color>
+    <color name="status_executando">#43A047</color>
+    <color name="status_pausado">#FB8C00</color>
+    <color name="status_parado">#9E9E9E</color>
+</resources>
