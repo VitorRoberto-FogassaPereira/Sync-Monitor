@@ -121,8 +121,6 @@ Cada ciclo executa 5 etapas em uma **Corrotina no `Dispatchers.IO`**:
 ```
 MyApplication/
 ├── README.md                              ← este arquivo
-├── ROTEIRO_APRESENTACAO.md / .docx        ← roteiro da equipe
-├── FALAS_APRESENTACAO.md / .docx          ← falas de cada integrante
 └── app/src/main/
     ├── AndroidManifest.xml                ← permissões, 7 telas e o <service>
     ├── java/com/example/myapplication/
